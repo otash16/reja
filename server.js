@@ -1,7 +1,7 @@
 console.log("Web Serverni Boshlash")
 const express = require('express');
 const app = express();
-
+const http = require('http');
 //1 : Kirish Code
 app.use(express.static("public"));
 app.use(express.json());
