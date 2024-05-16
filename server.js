@@ -15,6 +15,7 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //4: Routing codeapp.get("/", function(){
+    
 app.get('/', function(req, res){
     res.render('harid');
 });
