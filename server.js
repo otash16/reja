@@ -1,5 +1,6 @@
 console.log("Web Serverni Boshlash")
 const express = require('express');
+const res = require("express/lib/response");
 const app = express();
 const http = require('http');
 //1 : Kirish Code
@@ -13,14 +14,8 @@ app.use(express.urlencoded({extend: true}));
 app.set("views", "views");
 app.set("view engine", "ejs");
 
-//4: Routing code
-// app.get("/", function(req, res){
-//     res.end(`<h1>Hello World!</h1>`);
-// });
-// app.get("/gift", function(req, res){
-//     res.end(`<h1>Siz sovg'alar bo'limidasiz`);
-// });
-app.get("/", function(){
+//4: Routing codeapp.get("/", function(){
+app.get('/', function(req, res){
     res.render('harid');
 });
 
