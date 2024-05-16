@@ -1,5 +1,5 @@
 console.log("Web Serverni Boshlash")
-const express = require('express');
+const express = require("express");
 const res = require("express/lib/response");
 const app = express();
 const http = require('http');
@@ -15,7 +15,10 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //4: Routing codeapp.get("/", function(){
-    
+    app.post("/create-item", (req, res) => {
+    console.log(req.body);
+    res.json({test : "succes"});
+    })
 app.get('/', function(req, res){
     res.render('harid');
 });
