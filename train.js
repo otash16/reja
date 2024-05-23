@@ -1,8 +1,8 @@
-const list1 = [
-    "Yaxshi talaba bo'ling", //0-20
-    "To'g'ri boshliq tanlang va ko'proq xato qiling", //20-30
-    "endi dam oling, endi foydasi yoq" //60+
-];
+// const list1 = [
+//     "Yaxshi talaba bo'ling", //0-20
+//     "To'g'ri boshliq tanlang va ko'proq xato qiling", //20-30
+//     "endi dam oling, endi foydasi yoq" //60+
+// ];
 // function maslahatBering(a, callback){
 //     if(typeof a != 'number') callback("Xatolik!!!", null);
 //     else if(a<=20) callback(null, list1[0]);
@@ -32,19 +32,16 @@ const list1 = [
 // MASALAN countLetter("e", "engineer") 3ni return qiladi.
 const list = ['engineer'];
 
-function countLetter(a, callback){
+function countDigits(str1, callback){
     let count = 0;
-    let b = list[0];
-    for(let i=0; i<=b.length; i++){
-        if(a === b[i]){
+    for(let i=0; i<=str1.length; i++){
+        if(str1[i] >= 0){
             count++;
-            c = count;
         }
-       
     }
-    callback(null, c)
+    callback(null, count)
 }
-countLetter('e', (err, data) => {
+countDigits('ad2a54y79wet0sfgb9', (err, data) => {
     console.log(data)
 });
 
@@ -52,7 +49,7 @@ countLetter('e', (err, data) => {
 //     "Yaxshi talaba bo'ling", //0-20
 //     "To'g'ri boshliq tanlang va ko'proq xato qiling", //20-30
 //     "endi dam oling, endi foydasi yoq" //60+
-//];
+// ];
 //  async function maslahatBering(a){
 //     if(typeof a != 'number') throw new Error("Xatolik!!!");
 //     else if(a<=20) return(null, list1[0]);
@@ -66,7 +63,7 @@ countLetter('e', (err, data) => {
 //     }
 //        }
 
-//then//catch
+// then//catch
 // maslahatBering(25)
 // .then((data) => {
 //     maslahatBering(30)
