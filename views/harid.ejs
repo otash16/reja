@@ -34,7 +34,29 @@
                 </form>
             </div>
             </ul>
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <li
+    class = "list-group-item list-group-item-info d-flex align-items-center"
+    >
+    <span class = "item-text"><%=item.reja%></span>
+    <div>
+    <button
+    data-id = "<%=item._id%>"
+    class="edit-me btn btn-secondary btn-sm mr-1"></button>
+    >
+    Ozgartirish
+      </button>
+      <button
+      data-id = "<%=${item._id}%>"
+         class = "delete-me btn btn-danger btn-sm"
+   >
+   
+      Ochirish
+      </button>
+      </div>
+      </li>
+             <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
              <script src="/browser.js"></script>
+             </div>
+    </li>
     </body>
 </html>
