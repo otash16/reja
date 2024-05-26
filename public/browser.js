@@ -31,4 +31,13 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
         document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data))
     })
     .catch((err) => {});
+     console.log("Iltimos qaytadan harakaat qiling");
+            })
+        }
+        }
+    if(e.target.classList.contains("edit-me")){
+        alert("Siz edit tugmasini bosdingiz");
+    }
+})
+
 });
