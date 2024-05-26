@@ -49,7 +49,7 @@ document.addEventListener("click", function(e) {
                 e.target.parentElement.parentElement.remove();
             })
             .catch(error => {
-                console.log("Iltimos qaytadan harakat qiling");
+                console.log("Iltimos qaytadan harakaat qiling");
             })
         }
         }

@@ -4,7 +4,6 @@ const res = require("express/lib/response");
 const app = express();
 const http = require('http');
 const fs = require('fs');
-const mongodb = require("mongodb")
 let user;
 fs.readFile("database/user.json", 'utf8', (err, data) => {
     if(err){
