@@ -54,7 +54,7 @@ class Shop {
   console.log(shop.qoldiq());
   console.log(shop.apply("non", 3));
   console.log(shop.qoldiq());
-  console.log(shop.apply("lagmon", 3));
+  console.log(shop.apply("lagmon", 3));  
   console.log(shop.sell("pepsi", 3));
   console.log(shop.qoldiq());
   
