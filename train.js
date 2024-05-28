@@ -1,62 +1,62 @@
-// MITASK-C
+// // MITASK-C
 
-// Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq,
-//  biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
-// MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va
-// 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+// // Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq,
+// //  biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+// // MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va
+// // 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 
-class Shop {
-    constructor(non, lagmon, cola) {
-      this.products = {
-        non: non,
-        lagmon: lagmon,
-        cola: cola,
-      };
-    }
+// class Shop {
+//     constructor(non, lagmon, cola) {
+//       this.products = {
+//         non: non,
+//         lagmon: lagmon,
+//         cola: cola,
+//       };
+//     }
   
-    getCurrentTime() {
-      let now = new Date();
-      let hours = now.getHours();
-      let minutes = now.getMinutes();
-      return `${hours}:${minutes}`;
-    }
+//     getCurrentTime() {
+//       let now = new Date();
+//       let hours = now.getHours();
+//       let minutes = now.getMinutes();
+//       return `${hours}:${minutes}`;
+//     }
   
-    qoldiq() {
-      const { non, lagmon, cola } = this.products;
-      return `Hozir ${this.getCurrentTime()}da ${non} ta non, ${lagmon} ta lagmon va ${cola} ta cola bor.`;
-    }
+//     qoldiq() {
+//       const { non, lagmon, cola } = this.products;
+//       return `Hozir ${this.getCurrentTime()}da ${non} ta non, ${lagmon} ta lagmon va ${cola} ta cola bor.`;
+//     }
   
-    sell(product, quntity) {
-      let keysArray = Object.keys(this.products);
-      if (!keysArray.includes(product)) {
-        return `Bizda hozir ${product} yo'q`;
-      }
-      if (this.products[product] < quntity) {
-        return `Bizda yetarli miqdorda ${product} yo'q`;
-      }
-      this.products[product] -= quntity;
-      return `Biz ${this.getCurrentTime()}da ${quntity} ta ${product} sotdik`;
-    }
+//     sell(product, quntity) {
+//       let keysArray = Object.keys(this.products);
+//       if (!keysArray.includes(product)) {
+//         return `Bizda hozir ${product} yo'q`;
+//       }
+//       if (this.products[product] < quntity) {
+//         return `Bizda yetarli miqdorda ${product} yo'q`;
+//       }
+//       this.products[product] -= quntity;
+//       return `Biz ${this.getCurrentTime()}da ${quntity} ta ${product} sotdik`;
+//     }
   
-    apply(product, quantity) {
-      let keysArray = Object.keys(this.products);
-      if (!keysArray.includes(product)) {
-        return `Bizda hozir ${product} yo'q`;
-      }
-      this.products[product] += quantity;
-      return `Biz ${this.getCurrentTime()}da ${quantity} ta ${product} qabul qildik`;
-    }
-  }
+//     apply(product, quantity) {
+//       let keysArray = Object.keys(this.products);
+//       if (!keysArray.includes(product)) {
+//         return `Bizda hozir ${product} yo'q`;
+//       }
+//       this.products[product] += quantity;
+//       return `Biz ${this.getCurrentTime()}da ${quantity} ta ${product} qabul qildik`;
+//     }
+//   }
   
-  const shop = new Shop(4, 5, 2);
-  console.log(shop.qoldiq());
-  console.log(shop.sell("cola", 3));
-  console.log(shop.qoldiq());
-  console.log(shop.apply("non", 3));
-  console.log(shop.qoldiq());
-  console.log(shop.apply("lagmon", 3));  
-  console.log(shop.sell("pepsi", 3));
-  console.log(shop.qoldiq());
+//   const shop = new Shop(4, 5, 2);
+//   console.log(shop.qoldiq());
+//   console.log(shop.sell("cola", 3));
+//   console.log(shop.qoldiq());
+//   console.log(shop.apply("non", 3));
+//   console.log(shop.qoldiq());
+//   console.log(shop.apply("lagmon", 3));  
+//   console.log(shop.sell("pepsi", 3));
+//   console.log(shop.qoldiq());
   
   // Node js => single thread -> thread pool 4ta, - bir xonali , kam xarajatli, togri ishlatish kk - aynch, call back
   // php multi thread
@@ -206,3 +206,27 @@ class Shop {
   console.log(countDigits("www333ooo"));
   console.log(countDigits("I study English 2022"));
   */
+  function checkContent(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    let count1 = {};
+    let count2 = {};
+    for (let i = 0; i < str1.length; i++) {
+        let char = str1[i];
+        count1[char] = (count1[char] || 0) + 1;
+    }
+    for (let i = 0; i < str2.length; i++) {
+        let char = str2[i];
+        count2[char] = (count2[char] || 0) + 1;
+    }
+    for (let char in count1) {
+        if (count1[char] !== count2[char]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("hello", "world")); 
