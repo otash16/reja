@@ -240,4 +240,4 @@ function getReverse(str) {
 }
 
 let result = getReverse("hello");
-console.log(result);  // Output: "olleh"
+console.log(result);
