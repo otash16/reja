@@ -231,10 +231,13 @@
 // console.log(checkContent("mitgroup", "gmtiprou"));
 // console.log(checkContent("hello", "world")); 
 
-function getReverse(str){
-    let i1=0;
-    for(let i=str.length; i>=0; i--){
-        console.log(str[i]);
+function getReverse(str) {
+    let arr = [];
+    for (let i = str.length - 1; i >= 0; i--) {
+        arr.push(str[i]);
     }
+    return arr.join('');
 }
-getReverse("hello");
+
+let result = getReverse("hello");
+console.log(result);  // Output: "olleh"
