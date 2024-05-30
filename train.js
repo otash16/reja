@@ -206,27 +206,35 @@
   console.log(countDigits("www333ooo"));
   console.log(countDigits("I study English 2022"));
   */
-  function checkContent(str1, str2) {
-    if (str1.length !== str2.length) {
-        return false;
-    }
-    let count1 = {};
-    let count2 = {};
-    for (let i = 0; i < str1.length; i++) {
-        let char = str1[i];
-        count1[char] = (count1[char] || 0) + 1;
-    }
-    for (let i = 0; i < str2.length; i++) {
-        let char = str2[i];
-        count2[char] = (count2[char] || 0) + 1;
-    }
-    for (let char in count1) {
-        if (count1[char] !== count2[char]) {
-            return false;
-        }
-    }
+//   function checkContent(str1, str2) {
+//     if (str1.length !== str2.length) {
+//         return false;
+//     }
+//     let count1 = {};
+//     let count2 = {};
+//     for (let i = 0; i < str1.length; i++) {
+//         let char = str1[i];
+//         count1[char] = (count1[char] || 0) + 1;
+//     }
+//     for (let i = 0; i < str2.length; i++) {
+//         let char = str2[i];
+//         count2[char] = (count2[char] || 0) + 1;
+//     }
+//     for (let char in count1) {
+//         if (count1[char] !== count2[char]) {
+//             return false;
+//         }
+//     }
 
-    return true;
+//     return true;
+// }
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("hello", "world")); 
+
+function getReverse(str){
+    let i1=0;
+    for(let i=str.length; i>=0; i--){
+        console.log(str[i]);
+    }
 }
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("hello", "world")); 
+getReverse("hello");
