@@ -1,11 +1,12 @@
-console.log("Web serverni boshlash");
+console.log("Web serverni yozamiz");
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const mongodb = require("mongodb");
 
-//MongoDB connect
-// MongoDB call
+// MONGODB calling
 const db = require("./server").db();
+
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
   if (err) {
@@ -14,24 +15,22 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
     user = JSON.parse(data);
   }
 });
-const mongodb = require("mongodb");
-//1: Kirish kodlari
+
+// 1: Kirish kodlari
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//2:Session code
 
-//3: View code
+// 2: Session bog'liq kodlar
+
+// 3 Viewsga bog'liq kodlar
 app.set("views", "views");
 app.set("view engine", "ejs");
 
-//4: Routing code
-
+// 4 Routing ga bog'liq kodlar
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
-  console.log(req.body);
-  // res.end("success");
-  // res.json({ test: "success" });
+  // console.log(req.body);
   const newReja = req.body.reja;
   db.collection("plans").insertOne({ reja: newReja }, (err, data) => {
     console.log(data);
@@ -55,33 +54,28 @@ app.post("/edit-item", (req, res) => {
   db.collection("plans").findOneAndUpdate(
     {
       _id: new mongodb.ObjectId(data.id),
-    }, // coma should be removed
-    { $set: { reja: data.new_input } },
-    function (err, data) {
+    },
+    { $set: { reja: data.newInput } },
+    (err, data) => {
       res.json({ state: "success" });
     }
   );
-  // res.end("done");
 });
 
 app.post("/delete-all", (req, res) => {
   if (req.body.delete_all) {
     db.collection("plans").deleteMany(function () {
-      res.json({ state: "hamma rejalar ochirildi" });
+      res.json({ state: "Hamma rejalar o'chirildi" });
     });
   }
 });
 
-app.get("/author", (req, res) => {
+app.get("/author", function (req, res) {
   res.render("author", { user: user });
 });
-// app.get("/", (req, res) => {
-//   res.render("reja");
-//  });
 
 app.get("/", function (req, res) {
   console.log("user entered /");
-
   db.collection("plans")
     .find()
     .toArray((err, data) => {
@@ -94,5 +88,19 @@ app.get("/", function (req, res) {
       }
     });
 });
+
+// app.get("/hello", function (req, res) {
+//   res.end("<h1 style='background: red'>Hello World by John</h1>");
+// });
+
+// app.get("/gift", function (req, res) {
+//   res.end("<h1>Siz sovg'alar sahifasidasiz</h1>");
+// });
+
+// app.get("/contact", function (req, res) {
+//   res.end("<h1>You are in contact page</h1>");
+// });
+
+//   Calling server
 
 module.exports = app;

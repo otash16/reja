@@ -38,6 +38,7 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
       console.log("ILtimos qaytadan harakat qiling");
     });
 });
+
 document.addEventListener("click", function (e) {
   // Delete oper
   // console.log(e.target);
@@ -54,7 +55,8 @@ document.addEventListener("click", function (e) {
         });
     }
   }
-  // edit oper
+
+  // Edit oper
   if (e.target.classList.contains("edit-me")) {
     let userInput = prompt(
       "O'zgartirish kirinting",
@@ -64,7 +66,7 @@ document.addEventListener("click", function (e) {
       axios
         .post("/edit-item", {
           id: e.target.getAttribute("data-id"),
-          new_input: userInput,
+          newInput: userInput,
         })
         .then((response) => {
           console.log(response.data);
@@ -86,7 +88,5 @@ document.getElementById("clean-all").addEventListener("click", function () {
       alert(response.data.state);
       document.location.reload();
     })
-    .catch((err) => {
-      console.log("ILtimos qaytadan harakat qiling");
-    });
+    .catch((err) => {});
 });
