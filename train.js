@@ -231,13 +231,28 @@
 // console.log(checkContent("mitgroup", "gmtiprou"));
 // console.log(checkContent("hello", "world")); 
 
-function getReverse(str) {
-    let arr = [];
-    for (let i = str.length - 1; i >= 0; i--) {
-        arr.push(str[i]);
-    }
-    return arr.join('');
-}
+// function getReverse(str) {
+//     let arr = [];
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         arr.push(str[i]);
+//     }
+//     return arr.join('');
+// }
 
-let result = getReverse("hello");
-console.log(result);
+// let result = getReverse("hello");
+// console.log(result);
+
+//F task:
+
+function getReverse(a) {
+    for (let i = 0; i < a.length; i++) {
+      let letter = a[i];
+      if (a.indexOf(letter, i + 1) !== -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  console.log(getReverse("hello"));
+ 
