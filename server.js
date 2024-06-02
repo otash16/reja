@@ -1,10 +1,14 @@
 const http = require("http");
+
 const mongodb = require("mongodb");
+
 let db;
-const connectionString =
-  "mongodb+srv://otajonqutbiddinov1:PES2021pes2021@cluster0.mj2gqmh.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
+
+const connectionstring =
+  "mongodb+srv://jurabek7:Hostinguz4890@cluster0.lpazpyk.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
+
 mongodb.connect(
-  connectionString,
+  connectionstring,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -12,16 +16,13 @@ mongodb.connect(
   (err, client) => {
     if (err) console.log("ERROR on connection MongoDB");
     else {
-      console.log("MongoDB connection succeed");
+      console.log("MongoDb conetion succeed");
       module.exports = client;
-      //console.log(client);
       const app = require("./app");
       const server = http.createServer(app);
-      let PORT = 3000;
-      server.listen(3000, function () {
-        console.log(
-          `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`
-        );
+      let PORT = process.env.PORT || 3079;
+      server.listen(PORT, function () {
+        console.log(`The server is running successfully on port: ${PORT}`);
       });
     }
   }
