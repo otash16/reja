@@ -244,15 +244,29 @@
 
 //F task:
 
-function getReverse(a) {
-    for (let i = 0; i < a.length; i++) {
-      let letter = a[i];
-      if (a.indexOf(letter, i + 1) !== -1) {
-        return true;
-      }
-    }
-    return false;
-  }
+// function getReverse(a) {
+//     for (let i = 0; i < a.length; i++) {
+//       let letter = a[i];
+//       if (a.indexOf(letter, i + 1) !== -1) {
+//         return true;
+//       }
+//     }
+//     return false;
+//   }
   
-  console.log(getReverse("hello"));
- 
+//   console.log(getReverse("hello"));
+
+//Mit Task D
+function findHighIndex(a) {
+  
+  const mVal = Math.max(...a);
+  const firstIndex = a.indexOf(mVal);
+
+  return firstIndex;
+
+}
+
+const arr1 = [90, 113, 45, 49, 878, 102, 16, 37, 1]; // buyerda 98 ni qaytaradi, 4-index da joylashgan
+const highIndex = findHighIndex(arr1);
+
+console.log(highIndex);
